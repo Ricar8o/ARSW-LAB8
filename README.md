@@ -1,7 +1,44 @@
 ### Escuela Colombiana de Ingeniería
 ### Arquitecturas de Software - ARSW
 
+
+### Julián David Gutiérrez Vanegas
+### Andrés Ricardo Martínez Díaz
+
+
 ## Escalamiento en Azure con Maquinas Virtuales, Sacale Sets y Service Plans
+
+### Respuestas Parte 1 - Escalabilidad vertical
+1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
+	
+	7 Incluyendo la VM 
+	- Una red virtual.
+	- Una cuenta de almacenamiento.
+	- Una dirección ip pública.
+	- Un grupo de seguridad.
+	- Una interfaz de red.
+	- Un disco
+	
+
+2. ¿Brevemente describa para qué sirve cada recurso?
+	- Una red virtual: Permite que el servidor en la red envíe y reciba datos de forma segura entre usuarios, con Internet y con las redes locales.
+	- Una cuenta de almacenamiento: Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. 
+	- Una dirección ip pública: Es la dirección que tiene la maquina virtual por la que se puede acceder a los servicios a través de internet.
+	- Un grupo de seguridad: Contiene reglas de seguridad que permiten o deniegan el tráfico de red entrante o el tráfico de red saliente de varios tipos de recursos de Azure.
+	- Una interfaz de red: interfaz de red generada por defecto al crear la maquina virtual, permite conectarse a la red.
+	- Un disco: Disco virtualizado de la maquina virtual, sirve para definir el tamaño y tipo de almacenamiento de la maquina.
+3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
+4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
+5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
+6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
+    * Tiempos de ejecución de cada petición.
+    * Si hubo fallos documentelos y explique.
+7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
+8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+11. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+
 
 ### Dependencias
 * Cree una cuenta gratuita dentro de Azure. Para hacerlo puede guiarse de esta [documentación](https://azure.microsoft.com/en-us/free/search/?&ef_id=Cj0KCQiA2ITuBRDkARIsAMK9Q7MuvuTqIfK15LWfaM7bLL_QsBbC5XhJJezUbcfx-qAnfPjH568chTMaAkAsEALw_wcB:G:s&OCID=AID2000068_SEM_alOkB9ZE&MarinID=alOkB9ZE_368060503322_%2Bazure_b_c__79187603991_kwd-23159435208&lnkd=Google_Azure_Brand&dclid=CjgKEAiA2ITuBRDchty8lqPlzS4SJAC3x4k1mAxU7XNhWdOSESfffUnMNjLWcAIuikQnj3C4U8xRG_D_BwE). Al hacerlo usted contará con $200 USD para gastar durante 1 mes.
