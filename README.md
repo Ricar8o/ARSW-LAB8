@@ -167,9 +167,9 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     * Tiempos de ejecución de cada petición.
     * Si hubo fallos documentelos y explique.
 
-    ![postman1](images/Answers/postman1.PNG)
+    ![postman1](images/Answers/postman1.png)
 
-    ![postman2](images/Answers/postman2.PNG)
+    ![postman2](images/Answers/postman2.png)
 
 
 7. ¿Cuál es la diferencia entre los tamaños `D2` y `D1` (no solo busque especificaciones de infraestructura)?
