@@ -91,9 +91,9 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 **Preguntas**
 
 
-![fibo1](images/Answers/Fibo1.PNG)
+![fibo1](images/Answers/Fibo1.png)
 
-![fibo9](images/Answers/Fibo9.PNG)
+![fibo9](images/Answers/Fibo9.png)
 
 1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
 	
@@ -156,10 +156,10 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
 
     CPU D1
-    ![CPU](images/Answers/CPU.PNG)
+    ![CPU](images/Answers/CPU.png)
 
     CPU D2
-    ![CPU2](images/Answers/CPU2.PNG)
+    ![CPU2](images/Answers/CPU2.png)
 
     La función consume esa cantidad de CPU porque como no posee algún tipo de cache o memorización y calcula un solo valor por iteración siempre tiene que estar calculando números hasta encontrar el valor en la sucesión del número pedido, si este número es muy grande entonces hará más cálculos y consumirá más CPU.
 
