@@ -282,12 +282,28 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 **Preguntas**
 
 * ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
+ 	- Existen dos tipos de balanceadores: públicos y privados. El balanceador público es aquel que permite conexiones salientes 	desde máquinas virtuales dentro de una misma red virtual, esto se logra mediante la traducción de ip's privadas a públicas. Por otro lado, el balanceador privado es aquel que se usa dentro de una misma red virtual para balancear el tráfico dentro de ella.
+	 - Un SKU es un item que puede ser adquirido debajo de un producto. Existen los sku básicos y estandar. Estos dos difieren entre escalas de escenario, features y precios.
+	 - Necesita de una dirección pública para poder ser accedido de manera remota
 * ¿Cuál es el propósito del *Backend Pool*?
+	- Son grupos de máquinas vituales que tienen como proposito atender las solicitudes entrantes. 
 * ¿Cuál es el propósito del *Health Probe*?
+	- Determinar el estado actual de las diferentes máquinas que componen el Backend Pool. Estas pruebas son realizadas por el balanceado de carga, y en caso de que la prueba falle en una máquina, el balanceador de carga dejará de remitir solicitudes a dicho balanceador
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
+	- Estas reglas buscan definir cómo se va a distribuir la carga entre las distintas máquinas que componen el Backend Pool.
+	- 
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
+	- Una virtual network es una red que permite que diferentes recursos de Azure, como las máquinas virtuales, comunicarse de manera segura entre ellas mismas, Internet u otras redes On-Premise. 
+	- Es un mecanismo que permita la segmentación de una red virtual en diferentes subredes. 
+	- El "address range" sirve para configurar el rango de IP's, públicas o privadas, que se le asignan a los equipos de una red virtual.
+	- El "address space" sirve para definir los distintos "adress range" que tendrá la red virtual. Estos no pueden solaparse entre ellos. 
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
+	- Las Availability Zones son espacios físicos únicos que contienen uno o más datacenters equipados con energía, refrigeración y redes independientes.
+	- Se seleccionan 3 distintas zonas para garantizar una alta disponibilidad, ya que en caso de que una de las zonas elegidas presente complicaciones que le impidan estar disponible en un espacio de tiempo, la aplicación seguirá estando disponible gracias a las otras dos zonas.
+	- Significa que está máquina se replica automaticamente en distintos equipos de distintas zonas.
+	
 * ¿Cuál es el propósito del *Network Security Group*?
+	- Albergar una serie de reglas de seguridad de redes qud permiten o restringen el tráfico de salida o entrada de distintos recursos Azure. Estas reglas están compuestas por: un nombre, direcciones, puertos, prioridad, protocolos y la acción a realizarse (permitir o restringir).
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
 
