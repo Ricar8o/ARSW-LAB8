@@ -307,7 +307,7 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 * Informe de newman 1 (Punto 2)
 	- Una vez montadas las 3 máquinas virtuales junto con el balanceador de cargar, se hizo la prueba desde el browser utilizando la ip publica del balanceador:
 	
-	![par1](images/Answers/Balanceador1.PNG)
+	![par1](images/Answers/Balanceador1.png)
 	
 	- Después se ejecutó el comando postman en paralelo dos veces. Los resultados arrojados fueron los siguientes:
 	
@@ -325,7 +325,7 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 	
 	- El comportamiento de las CPU's de las cuatro máquinas fue el siguiente
 	
-	![par4](images/Answers/Balanceador4.PNG)
+	![par4](images/Answers/Balanceador4.png)
 	
 	Como se puede observar, las 4 máquinas tuvieron un gasto de CPU similirar que promedia más o menos el 6%. Esto se debe a que el balanceador de carga distrubuye las solicitudes equitativamente haciendo que las máquinas tengan igual cantidad de trabajo para que así su rendimiento sea el más optimo posible, como lo demuestra el corto tiempo de respuesta promedio que se tuvo en comparación con el obtenido cuando se realizó escalamiento vertical.
 	
