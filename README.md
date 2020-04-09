@@ -317,7 +317,7 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 	- Costos Vertical: 1 máquina con costo de $7.60 mensual **Costo Mensual: $7.70** 
 	- Costo Horizontal: 3 máquinas con costo $3.80 y un balanceador con costo de $18.60 **Costo Mensual: $30.00**
 	
-	- Después se agregó una cuarta máquina y se ejecutó el comando de postman en paralelo. Los siguientes fueron los reslutados:
+	- Después, se agregó una cuarta máquina y se ejecutó el comando de postman en paralelo. Los siguientes fueron los reslutados:
 	
 	![par3](images/Answers/Balanceador3.PNG)
 	
@@ -334,5 +334,8 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 	
 
 * Presente el Diagrama de Despliegue de la solución.
+	
+	![diagrama](images/Answers/Diagrama.PNG)
+	
 
 
