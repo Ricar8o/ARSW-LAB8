@@ -305,8 +305,25 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 * ¿Cuál es el propósito del *Network Security Group*?
 	- Albergar una serie de reglas de seguridad de redes qud permiten o restringen el tráfico de salida o entrada de distintos recursos Azure. Estas reglas están compuestas por: un nombre, direcciones, puertos, prioridad, protocolos y la acción a realizarse (permitir o restringir).
 * Informe de newman 1 (Punto 2)
+	- Una vez montadas las 3 máquinas virtuales junto con el balanceador de cargar, se hizo la prueba desde el browser utilizando la ip publica del balanceador:
+	![par1](images/Answers/Balanceador1.png)
+	- Después se ejecutó el comando postman en paralelo dos veces. Los resultados arrojados fueron los siguientes:
+	![par2](images/Answers/Balanceador2.png)
+	Como podemos observar, gracias al balanceador de carga y a las tres máquinas, se logró que todas las 10 solicitudes hechas, en cada ejecución, resultaran exitosas. Esto constrasta notoramiente con las pruebas realizadas en la parte 1 donde más del 50% de las solicitudes hechas resultaron fallidas. También ocurre esto si analizamos el tiempo de respuesta de las solicitudes, ya que en está oportunidad tuvieron un tiempo de respuesta aproximado de 20 segundos, mientras que en las pruebas realizadas en la parte uno se tuvo un tiempo de respuesta aproximado de 55 segundos, es decir que el tiempo se redujo en más del 60%.
+	- Costos Vertical: 1 máquina con costo de $7.60 mensual **Costo Mensual: $7.70** 
+	- Costo Horizontal: 3 máquinas con costo $3.80 y un balanceador con costo de $18.60 **Costo Mensual: $30.00**
+	
+	-Después se agregó una cuarta máquina y se ejecutó el comando de postman en paralelo. Los siguientes fueron los reslutados:
+	![par3](images/Answers/Balanceador3.png)
+	Otra vez se logró que todas las solicitudes fueran respondidas satisfactoriamente y con un tiempo promedio de 20 segundos por solicitud. 
+	- El comportamiento de las CPU's de las cuatro máquinas fue el siguiente
+	![par4](images/Answers/Balanceador4.png)
+	Como se puede observar, las 4 máquinas tuvieron un gasto de CPU similirar que promedia más o menos el 6%. Esto se debe a que el balanceador de carga distrubuye las solicitudes equitativamente haciendo que las máquinas tengan igual cantidad de trabajo para que así su rendimiento sea el más optimo posible, como lo demuestra el corto tiempo de respuesta promedio que se tuvo en comparación con el obtenido cuando se realizó escalamiento vertical.
+	
+	
+	
+	
+
 * Presente el Diagrama de Despliegue de la solución.
-
-
 
 
