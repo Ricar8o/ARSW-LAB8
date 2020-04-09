@@ -291,7 +291,7 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 	- Determinar el estado actual de las diferentes máquinas que componen el Backend Pool. Estas pruebas son realizadas por el balanceado de carga, y en caso de que la prueba falle en una máquina, el balanceador de carga dejará de remitir solicitudes a dicho balanceador
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
 	- Estas reglas buscan definir cómo se va a distribuir la carga entre las distintas máquinas que componen el Backend Pool.
-	- 
+	- En azure contamos con dos tipos de sesiones persistentes: una basada únicamente en ip (es decir, todas las solicitudes de una ip especifica se van a una máquina especifica) y otra que tiene en cuenta la ip y el protocolo que se está usando. Afecta la escalabilidad, ya que al tener que manejar sesiones, no se pueden paralizar solicitudes, tal como lo hacemos en este caso, sino que puede ocurrir que una máquina esté en su máxima capacidad atendiendo a múltiples clientes que mantien una sesión abierta, mientras que las demás no tengan clientes que atender y estén en pausa.
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
 	- Una virtual network es una red que permite que diferentes recursos de Azure, como las máquinas virtuales, comunicarse de manera segura entre ellas mismas, Internet u otras redes On-Premise. 
 	- Es un mecanismo que permita la segmentación de una red virtual en diferentes subredes. 
@@ -306,18 +306,27 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 	- Albergar una serie de reglas de seguridad de redes qud permiten o restringen el tráfico de salida o entrada de distintos recursos Azure. Estas reglas están compuestas por: un nombre, direcciones, puertos, prioridad, protocolos y la acción a realizarse (permitir o restringir).
 * Informe de newman 1 (Punto 2)
 	- Una vez montadas las 3 máquinas virtuales junto con el balanceador de cargar, se hizo la prueba desde el browser utilizando la ip publica del balanceador:
-	![par1](images/Answers/Balanceador1.png)
+	
+	![par1](images/Answers/Balanceador1.PNG)
+	
 	- Después se ejecutó el comando postman en paralelo dos veces. Los resultados arrojados fueron los siguientes:
-	![par2](images/Answers/Balanceador2.png)
+	
+	![par2](images/Answers/Balanceador2.PNG)
+	
 	Como podemos observar, gracias al balanceador de carga y a las tres máquinas, se logró que todas las 10 solicitudes hechas, en cada ejecución, resultaran exitosas. Esto constrasta notoramiente con las pruebas realizadas en la parte 1 donde más del 50% de las solicitudes hechas resultaron fallidas. También ocurre esto si analizamos el tiempo de respuesta de las solicitudes, ya que en está oportunidad tuvieron un tiempo de respuesta aproximado de 20 segundos, mientras que en las pruebas realizadas en la parte uno se tuvo un tiempo de respuesta aproximado de 55 segundos, es decir que el tiempo se redujo en más del 60%.
 	- Costos Vertical: 1 máquina con costo de $7.60 mensual **Costo Mensual: $7.70** 
 	- Costo Horizontal: 3 máquinas con costo $3.80 y un balanceador con costo de $18.60 **Costo Mensual: $30.00**
 	
-	-Después se agregó una cuarta máquina y se ejecutó el comando de postman en paralelo. Los siguientes fueron los reslutados:
-	![par3](images/Answers/Balanceador3.png)
+	- Después se agregó una cuarta máquina y se ejecutó el comando de postman en paralelo. Los siguientes fueron los reslutados:
+	
+	![par3](images/Answers/Balanceador3.PNG)
+	
 	Otra vez se logró que todas las solicitudes fueran respondidas satisfactoriamente y con un tiempo promedio de 20 segundos por solicitud. 
+	
 	- El comportamiento de las CPU's de las cuatro máquinas fue el siguiente
-	![par4](images/Answers/Balanceador4.png)
+	
+	![par4](images/Answers/Balanceador4.PNG)
+	
 	Como se puede observar, las 4 máquinas tuvieron un gasto de CPU similirar que promedia más o menos el 6%. Esto se debe a que el balanceador de carga distrubuye las solicitudes equitativamente haciendo que las máquinas tengan igual cantidad de trabajo para que así su rendimiento sea el más optimo posible, como lo demuestra el corto tiempo de respuesta promedio que se tuvo en comparación con el obtenido cuando se realizó escalamiento vertical.
 	
 	
